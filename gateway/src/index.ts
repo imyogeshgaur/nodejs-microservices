@@ -15,3 +15,4 @@ server.get("/gateway",(req,res)=>{
 })
 
 server.start(port);
+console.log("API Gateway Running !!!");
