@@ -21,7 +21,7 @@ app.get("/list",async(req,res)=>{
 app.get("/get/:email",async(req,res)=>{
     try {
         const email = req.params.email;
-        const user = await User.find({email});
+        const user = await User.findOne({email});
         return res.status(200).send(user);
     } catch (error) {
         console.log(error);   
