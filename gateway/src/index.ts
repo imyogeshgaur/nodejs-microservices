@@ -1,12 +1,15 @@
 import gateway from "fast-gateway"
 const port = 5000
+import dotenv from "dotenv";
+import * as path from "path"
+dotenv.config({path:path.resolve("./src/env/gateway.env")});
 const server  =gateway({
     routes:[{
-        prefix:"/users",
-        target:"http://localhost:5001/"
+        prefix:process.env.USER_URL as string,
+        target:process.env.USER_URI as string
     },{
-        prefix:"/books",
-        target:"http://localhost:5002/"
+        prefix:process.env.BOOK_URL as string,
+        target:process.env.BOOK_URI as string
     }]
 })
 
